@@ -1,24 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import ChatHome from './components/chat-home';
+import SocketIOClient from 'socket.io-client';
+const socket = SocketIOClient('http://192.168.0.105:5000',{
+  forceNew: true,
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <ChatHome socket={socket}></ChatHome>
   );
 }
 
